@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/bootstrap.php';
+
+use AdminTemplate\Command\StaticFilesGenerator;
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+$application->add(new StaticFilesGenerator());
+$application->run();

@@ -1,0 +1,330 @@
+{% extends "share/base.twig" %}
+{% block top %}
+    <style>
+        .example-modal .modal {
+            position: relative;
+            top: auto;
+            bottom: auto;
+            right: auto;
+            left: auto;
+            display: block;
+            z-index: 1;
+        }
+
+        .example-modal .modal {
+            background: transparent !important;
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            弹出框演示
+            <small>常用的弹出框演示</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+            <li><a href="#">页面演示</a></li>
+            <li class="active">弹出框演示</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">常用的弹出框演示</h3>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-block btn-primary" data-toggle="modal"
+                                data-target="#modal">基本弹出框
+                        </button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-block btn-primary" data-toggle="modal"
+                                data-target="#form-modal">表单弹出框
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">弹出框标题</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>弹出框内容</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary">自定义事件</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+
+                <div class="modal fade" id="form-modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">内嵌表单</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form role="form" class="form-horizontal">
+                                    <!-- Default box -->
+                                    <div class="box">
+                                        <div class="box-body">
+
+                                            <div class="form-group">
+                                                <label for="form-email" class="col-sm-3 control-label">Email 地址</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="form-email"
+                                                           placeholder="输入 Email 地址">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="form-password" class="col-sm-3 control-label">密码</label>
+                                                <div class="col-sm-9">
+                                                    <input type="password" class="form-control" id="form-password"
+                                                           placeholder="输入密码">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="form-disabled" class="col-sm-3 control-label">禁用的输入框</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="form-disabled"
+                                                           placeholder="禁用状态"
+                                                           disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputFile"
+                                                       class="col-sm-3 control-label">文件上传</label>
+                                                <div class="col-sm-9">
+                                                    <input type="file" id="exampleInputFile">
+                                                    <p class="help-block"><i
+                                                                class="fa fa-fw fa-question-circle text-orange"></i>可以提供简要的帮助说明。
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">下拉单选</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control select2" style="width: 100%;">
+                                                        <option selected="selected">最喜欢的手机</option>
+                                                        <option>iPhone 6S</option>
+                                                        <option>三星</option>
+                                                        <option>华为</option>
+                                                        <option>小米</option>
+                                                        <option>摩托罗拉</option>
+                                                        <option>锤子</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">性别</label>
+                                                <div class="col-sm-9 checkbox">
+                                                    <label class="margin-r-5">
+                                                        <input type="radio" name="r1" class="minimal" checked>
+                                                        男
+                                                    </label>
+                                                    <label class="margin-r-5">
+                                                        <input type="radio" name="r1" class="minimal">
+                                                        女
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="r1" class="minimal">
+                                                        不男不女
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9 checkbox">
+                                                    <label for="agree"><input type="checkbox" id="agree"> 我同意条款</label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- /.box-body -->
+
+                                        <!-- /.box-body -->
+                                        <div class="box-footer">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <button type="submit" class="btn bg-orange">
+                                                        <i class="fa fa-fw fa-check"></i> 确定
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- /.box-footer-->
+                                    </div>
+                                    <!-- /.box -->
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                脚部
+            </div>
+            <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">其他样式弹出框</h3>
+            </div>
+            <div class="box-body">
+                <div class="example-modal">
+                    <div class="modal modal-primary">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Primary Modal</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>One fine body&hellip;</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-outline">Save changes</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                </div>
+                <!-- /.example-modal -->
+
+                <div class="example-modal">
+                    <div class="modal modal-info">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Info Modal</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>One fine body&hellip;</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-outline">Save changes</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                </div>
+                <!-- /.example-modal -->
+
+                <div class="example-modal">
+                    <div class="modal modal-warning">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Warning Modal</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>One fine body&hellip;</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-outline">Save changes</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                </div>
+                <!-- /.example-modal -->
+
+                <div class="example-modal">
+                    <div class="modal modal-success">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Success Modal</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>One fine body&hellip;</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-outline">Save changes</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                </div>
+                <!-- /.example-modal -->
+
+                <div class="example-modal">
+                    <div class="modal modal-danger">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Danger Modal</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>One fine body&hellip;</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-outline">Save changes</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                </div>
+            </div>
+            <div class="box-footer">
+                脚部
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block bottom %}
+{% endblock %}

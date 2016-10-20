@@ -1,0 +1,94 @@
+{% extends "share/base.twig" %}
+{% block main %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            下拉框演示
+            <small>各种下拉框的演示</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+            <li><a href="#">表单演示</a></li>
+            <li class="active">下拉框演示</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <form role="form">
+            <!-- Default box -->
+            <div class="box">
+
+                <div class="box-body">
+                    <div class="form-group">
+                        <label>下拉单选</label>
+                        <select class="form-control select2" style="width: 100%;">
+                            <option selected="selected">最喜欢的手机</option>
+                            <option>iPhone 6S</option>
+                            <option>三星</option>
+                            <option>华为</option>
+                            <option>小米</option>
+                            <option>摩托罗拉</option>
+                            <option>锤子</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>下拉多选</label>
+                        <select class="form-control select2" multiple="multiple" data-placeholder="选择最喜欢的手机"
+                                style="width: 100%;">
+                            <option>iPhone 6S</option>
+                            <option>三星</option>
+                            <option>华为</option>
+                            <option>小米</option>
+                            <option>摩托罗拉</option>
+                            <option>锤子</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>选项分组</label>
+                        <select class="form-control select2" style="width: 100%;">
+                            <option selected="selected">最喜欢的手机</option>
+                            <optgroup label="Apple">
+                                <option>iPhone 6S</option>
+                                <option>iPhone 6</option>
+                                <option>iPhone SE</option>
+                            </optgroup>
+                            <optgroup label="三星">
+                                <option>三星 S4</option>
+                                <option>三星 S5</option>
+                                <option>三星 S6</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <button type="submit" class="btn bg-orange">
+                        <i class="fa fa-fw fa-check"></i>确定
+                    </button>
+                </div>
+                <!-- /.box-footer-->
+            </div>
+            <!-- /.box -->
+        </form>
+    </section>
+    <!-- /.content -->
+{% endblock %}
+
+{% block bottom %}
+    <script src="{{ base_path }}/js/plugins/iCheck/icheck.min.js"></script>
+    <!-- Select2 -->
+    <script src="{{ base_path }}/js/plugins/select2/select2.full.min.js"></script>
+    <script>
+        $(function () {
+            $('input[type="checkbox"], input[type="radio"]').iCheck({
+                checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green'
+            });
+
+            $(".select2").select2();
+        });
+    </script>
+{% endblock %}

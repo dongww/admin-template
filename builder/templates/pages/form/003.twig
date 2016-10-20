@@ -1,0 +1,111 @@
+{% extends "share/base.twig" %}
+{% block top %}
+{% endblock %}
+{% block main %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            一行多项表单演示
+            <small>合理的一行多项可以减少表单整体高度</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+            <li><a href="#">页面演示</a></li>
+            <li class="active">一行多项表单演示</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <form role="form" class="form-horizontal">
+            <!-- Default box -->
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">一行多项表单演示</h3>
+                </div>
+                <div class="box-body">
+
+                    <div class="form-group">
+                        <label for="form-email" class="col-sm-2 control-label">Email 地址</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="form-email" placeholder="输入 Email 地址">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-email" class="col-sm-2 control-label">用户名/密码/学历</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="form-email" placeholder="输入 用户名">
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="password" class="form-control" id="form-email" placeholder="输入 密码">
+                        </div>
+                        <div class="col-sm-2">
+                            <select class="form-control select2" style="width: 100%;">
+                                <option selected="selected">--学历--</option>
+                                <option>小学</option>
+                                <option>初中</option>
+                                <option>高中</option>
+                                <option>大学</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-email" class="col-sm-2 control-label">性别/婚姻</label>
+                        <div class="col-sm-4 checkbox">
+                            <label class="margin-r-5">
+                                <input type="radio" name="sex" class="minimal" checked>
+                                男
+                            </label>
+                            <label>
+                                <input type="radio" name="sex" class="minimal">
+                                女
+                            </label>
+                        </div>
+                        <div class="col-sm-4 checkbox">
+                            <label class="margin-r-5">
+                                <input type="radio" name="married" class="minimal" checked>
+                                已婚
+                            </label>
+                            <label>
+                                <input type="radio" name="married" class="minimal">
+                                未婚
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-email" class="col-sm-2 control-label">备注</label>
+                        <div class="col-sm-10">
+                            <textarea class=" form-control" rows="6"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn bg-orange">
+                                <i class="fa fa-fw fa-check"></i> 确定
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-footer-->
+            </div>
+            <!-- /.box -->
+        </form>
+    </section>
+    <!-- /.content -->
+{% endblock %}
+{% block bottom %}
+    <script src="{{ base_path }}/js/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(function () {
+            $('input[type="checkbox"], input[type="radio"]').iCheck({
+                checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green'
+            });
+        });
+    </script>
+{% endblock %}

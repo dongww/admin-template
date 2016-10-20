@@ -1,0 +1,216 @@
+{% extends "share/base.twig" %}
+{% block top %}
+{% endblock %}
+{% block main %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            商品属性选择演示
+            <small>由众多 SKU 中确定一个，以便下单</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+            <li><a href="#">页面演示</a></li>
+            <li class="active">商品属性选择演示</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">商品属性选择演示</h3>
+            </div>
+            <div class="box-body">
+                {% verbatim %}
+                <div id="sku-selector">
+                    <ul style="line-height: 3">
+                        <li>价格：{{ product.price }} 元</li>
+                        <li v-for="attr in product.attributes.attributes">
+                            {{ attr.name }}：
+                            <template v-for="(key, value) in attr.values">
+                                <label class="btn attribute-label bg-light-blue" style="margin-right: 5px">
+                                    <input style="display: none"
+                                            class="attr-values"
+                                            @change="change(attr.id, key)"
+                                            name="{{ attr.id }}"
+                                            type="radio"
+                                            data-attr="{{ attr.id }}"
+                                            data-value="{{ key }}"
+                                    >{{ value }}<!--({{ attr.id }}:{{ key }})--></label>
+                            </template>
+                        </li>
+                    </ul>
+                    <form action="">
+                        <label>SKU ID：<input type="text" name="sku" value="{{ sku.id }}"></label>
+                        <label>数量：<input type="number" name="stock" style="width: 50px" width="5"> 共{{ product.stock }}件</label>
+                    </form>
+                </div>
+                {% endverbatim %}
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn bg-orange">
+                            <i class="fa fa-fw fa-check"></i> 确定
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+{% endblock %}
+{% block bottom %}
+    <script src="{{ base_path }}/js/plugins/vue.js"></script>
+    <script src="{{ base_path }}/js/sku.js"></script>
+    <script>
+        var demo = new Vue({
+            el: '#sku-selector',
+            data: {
+                product: {
+                    attributes: {},
+                    price: 0,
+                    stock: 0
+                },
+                checkedAttrValues: {},
+                availableSkuSet: {count: 0}
+            },
+            computed: {
+                sku: function () {
+                    if (this.availableSkuSet.count == 1) {
+                        for (var sku in this.availableSkuSet) {
+                            if (sku != 'count') {
+                                return {
+                                    'id': this.availableSkuSet[sku].id,
+                                    'specification': this.availableSkuSet[sku].specification
+                                }
+                            }
+                        }
+                    } else {
+                        return {};
+                    }
+                }
+            },
+            methods: {
+                change: function (attr, value) {
+                    var lastCheckedAttr = attr;
+                    var OptionalSkuSet = {count: 0};
+                    this.availableSkuSet = {count: 0};
+
+                    var checkedAttrAndValue = attrAndValueStr(attr, value);
+                    this.checkedAttrValues[attr] = attrAndValueStr(attr, value);
+
+                    for (var sku in this.product.attributes.skuSet) {
+                        if (sku.indexOf(checkedAttrAndValue) >= 0) {
+                            OptionalSkuSet[sku] = this.product.attributes.skuSet[sku];
+                            OptionalSkuSet.count++;
+                        }
+
+                        var available = true;
+                        for (var key in this.checkedAttrValues) {
+                            if (this.checkedAttrValues[key] && (sku.indexOf(this.checkedAttrValues[key]) >= 0)) {
+                            } else {
+                                available = false;
+                                break;
+                            }
+                        }
+
+                        if (available) {
+                            this.availableSkuSet[sku] = this.product.attributes.skuSet[sku];
+                            this.availableSkuSet.count++;
+                        }
+                    }
+
+                    var _this = this;
+                    if (OptionalSkuSet.count) {
+                        $('.attr-values').each(function () {
+                            var enable = false;
+
+                            var dataAttr = $(this).attr('data-attr');
+                            var dataValue = $(this).attr('data-value');
+
+                            var keyword = attrAndValueStr(dataAttr, dataValue);
+
+                            var check = false;
+                            for (var sku in OptionalSkuSet) {
+                                if (sku == 'count') {
+                                    continue;
+                                }
+
+                                check = true;
+                                if (sku.indexOf(keyword) < 0) {
+                                    continue;
+                                } else {
+                                    check = true;
+                                }
+
+                                for (var k in _this.checkedAttrValues) {
+                                    if (k == dataAttr) {
+                                        continue;
+                                    }
+                                    if (sku.indexOf(_this.checkedAttrValues[k]) < 0) {
+                                        check = false;
+                                        break;
+                                    }
+                                }
+                                if (check) {
+                                    enable = true;
+                                    break;
+                                }
+                            }
+
+                            if (lastCheckedAttr != dataAttr) {
+                                if (!enable) {
+                                    $(this).prop('disabled', true);
+
+                                } else {
+                                    $(this).prop('disabled', false);
+
+                                }
+                            }
+
+                            if ($(this).prop('disabled')) {
+                                $(this).parent().removeClass('bg-light-blue bg-orange bg-gray');
+                                $(this).parent().addClass('bg-gray');
+                            } else {
+                                $(this).parent().removeClass('bg-light-blue bg-orange bg-gray');
+                                if ($(this).get(0).checked) {
+                                    $(this).parent().addClass('bg-orange');
+                                } else {
+                                    $(this).parent().addClass('bg-light-blue');
+                                }
+                            }
+                        });
+                    }
+
+                    this.product.price = getSkuSetPriceRange(this.availableSkuSet);
+                    this.product.stock = getSkuSetStockRange(this.availableSkuSet);
+                }
+            }
+        });
+
+        $(function () {
+//        $.getJSON("real_data1.json", function (data) {
+//            data = convertApi(data);
+//            demo.product.attributes = data;
+//            demo.product.price = getSkuSetPriceRange(demo.product.attributes.skuSet);
+//            demo.product.stock = getSkuSetPriceRange(demo.product.attributes.skuSet);
+//        });
+
+            $.getJSON("{{ base_path }}/js/data/sku.json", function (data) {
+                demo.product.attributes = data;
+                demo.product.price = getSkuSetPriceRange(demo.product.attributes.skuSet);
+                demo.product.stock = getSkuSetStockRange(demo.product.attributes.skuSet);
+                console.log(demo.product);
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,423 @@
+{% extends "share/base.twig" %}
+{% block top %}
+    <style>
+        .info-box-text {
+            white-space: normal;
+        }
+
+        .color-palette {
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+        }
+
+        .color-palette-set {
+            margin-bottom: 15px;
+        }
+
+        .color-palette-box h4 {
+            position: absolute;
+            top: 100%;
+            left: 25px;
+            margin-top: -40px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+            display: block;
+            z-index: 7;
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            统一颜色含义
+            <small>项目范围内，同样的颜色具有一致的含义</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Widgets</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <h2 class="page-header">功能操作类</h2>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-light-blue-active">及</span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">bg-light-blue</span>
+                        <span class="info-box-text">不会对数据产生影响的操作，例如：查看、查询</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-orange">及</span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">bg-orange</span>
+                        <span class="info-box-text">对数据进行修改，但不会产生严重的后果，例如：修改</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red">及</span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">bg-red</span>
+                        <span class="info-box-text">会造成严重后果或不可逆的操作，例如：删除</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-gray">及</span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">bg-gray</span>
+                        <span class="info-box-text">取消、放弃、还原</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+        </div>
+        <h2 class="page-header">信息提示类</h2>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green">及</span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">bg-green</span>
+                        <span class="info-box-text">成功及类似含义</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-black">及</span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">bg-black</span>
+                        <span class="info-box-text">失败及类似含义</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-light-blue">及</span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">bg-light-blue</span>
+                        <span class="info-box-text">提醒及类似含义</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-orange">及</span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">bg-orange</span>
+                        <span class="info-box-text">警告、醒目及类似含义</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red">及</span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">bg-red</span>
+                        <span class="info-box-text">危险及类似含义</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+        </div>
+        <h2 class="page-header">信息提示类</h2>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon"><i class="fa fa-circle-o text-green"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">text-green</span>
+                        <span class="info-box-text">成功及类似含义</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon"><i class="fa fa-circle-o text-black"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">text-black</span>
+                        <span class="info-box-text">失败及类似含义</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon"><i class="fa fa-circle-o text-light-blue"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">bg-light-blue</span>
+                        <span class="info-box-text">提醒及类似含义</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon"><i class="fa fa-circle-o text-orange"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">text-orange</span>
+                        <span class="info-box-text">警告、醒目及类似含义</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon"><i class="fa fa-circle-o text-red"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">text-red</span>
+                        <span class="info-box-text">危险及类似含义</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+        </div>
+        <h2 class="page-header">二元状态区分</h2>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green">及</span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">bg-green</span>
+                        <span class="info-box-text">正面的状态，例如：启用</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-gray">及</span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">bg-gray</span>
+                        <span class="info-box-text">负面的状态，例如：未启用</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon"><i class="fa fa-circle-o text-green"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">text-green</span>
+                        <span class="info-box-text">正面的状态，例如：启用</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon" style="background: #fff"><i class="fa fa-circle-o text-gray"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-number">text-gray</span>
+                        <span class="info-box-text">负面的状态，例如：未启用</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+        </div>
+        <h2 class="page-header">其他</h2>
+        <div class="row">
+            <div class="col-sm-4 col-md-2">
+                <h4 class="text-center">Primary</h4>
+
+                <div class="color-palette-set">
+                    <div class="bg-light-blue disabled color-palette"><span>bg-light-blue disabled</span></div>
+                    <div class="bg-light-blue color-palette"><span>#bg-light-blue</span></div>
+                    <div class="bg-light-blue-active color-palette"><span>bg-light-blue-active</span></div>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 col-md-2">
+                <h4 class="text-center">Info</h4>
+
+                <div class="color-palette-set">
+                    <div class="bg-aqua disabled color-palette"><span>bg-aqua disabled</span></div>
+                    <div class="bg-aqua color-palette"><span>bg-aqua</span></div>
+                    <div class="bg-aqua-active color-palette"><span>bg-aqua-active</span></div>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 col-md-2">
+                <h4 class="text-center">Success</h4>
+
+                <div class="color-palette-set">
+                    <div class="bg-green disabled color-palette"><span>bg-green disabled</span></div>
+                    <div class="bg-green color-palette"><span>bg-green</span></div>
+                    <div class="bg-green-active color-palette"><span>bg-green-active</span></div>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 col-md-2">
+                <h4 class="text-center">Warning</h4>
+
+                <div class="color-palette-set">
+                    <div class="bg-yellow disabled color-palette"><span>bg-yellow disabled</span></div>
+                    <div class="bg-yellow color-palette"><span>bg-yellow</span></div>
+                    <div class="bg-yellow-active color-palette"><span>bg-yellow-active</span></div>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 col-md-2">
+                <h4 class="text-center">Danger</h4>
+
+                <div class="color-palette-set">
+                    <div class="bg-red disabled color-palette"><span>bg-red disabled</span></div>
+                    <div class="bg-red color-palette"><span>bg-red</span></div>
+                    <div class="bg-red-active color-palette"><span>bg-red-active</span></div>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 col-md-2">
+                <h4 class="text-center">Gray</h4>
+
+                <div class="color-palette-set">
+                    <div class="bg-gray disabled color-palette"><span>bg-gray disabled</span></div>
+                    <div class="bg-gray color-palette"><span>bg-gray</span></div>
+                    <div class="bg-gray-active color-palette"><span>bg-gray-active</span></div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-2">
+                <h4 class="text-center">Navy</h4>
+
+                <div class="color-palette-set">
+                    <div class="bg-navy disabled color-palette"><span>bg-navy disabled</span></div>
+                    <div class="bg-navy color-palette"><span>bg-navy</span></div>
+                    <div class="bg-navy-active color-palette"><span>bg-navy-active</span></div>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 col-md-2">
+                <h4 class="text-center">Teal</h4>
+
+                <div class="color-palette-set">
+                    <div class="bg-teal disabled color-palette"><span>bg-teal disabled</span></div>
+                    <div class="bg-teal color-palette"><span>bg-teal</span></div>
+                    <div class="bg-teal-active color-palette"><span>bg-teal-active</span></div>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 col-md-2">
+                <h4 class="text-center">Purple</h4>
+
+                <div class="color-palette-set">
+                    <div class="bg-purple disabled color-palette"><span>bg-purple disabled</span></div>
+                    <div class="bg-purple color-palette"><span>bg-purple</span></div>
+                    <div class="bg-purple-active color-palette"><span>bg-purple-active</span></div>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 col-md-2">
+                <h4 class="text-center">Orange</h4>
+
+                <div class="color-palette-set">
+                    <div class="bg-orange disabled color-palette"><span>bg-orange disabled</span></div>
+                    <div class="bg-orange color-palette"><span>bg-orange</span></div>
+                    <div class="bg-orange-active color-palette"><span>bg-orange-active</span></div>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 col-md-2">
+                <h4 class="text-center">Maroon</h4>
+
+                <div class="color-palette-set">
+                    <div class="bg-maroon disabled color-palette"><span>bg-maroon disabled</span></div>
+                    <div class="bg-maroon color-palette"><span>bg-maroon</span></div>
+                    <div class="bg-maroon-active color-palette"><span>bg-maroon-active</span></div>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 col-md-2">
+                <h4 class="text-center">Black</h4>
+
+                <div class="color-palette-set">
+                    <div class="bg-black disabled color-palette"><span>bg-black disabled</span></div>
+                    <div class="bg-black color-palette"><span>bg-black</span></div>
+                    <div class="bg-black-active color-palette"><span>bg-black-active</span></div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <h2 class="page-header">字体颜色</h2>
+        <div class="row">
+            <div class="col-sm-4 col-md-2">
+                <div class="color-palette-set">
+                    <div class="text-red color-palette"><span>text-red</span></div>
+                    <div class="text-yellow color-palette"><span>text-yellow</span></div>
+                    <div class="text-aqua color-palette"><span>text-aqua</span></div>
+                    <div class="text-blue color-palette"><span>text-blue</span></div>
+                    <div class="text-black color-palette"><span>text-black</span></div>
+                    <div class="text-light-blue color-palette"><span>text-light-blue</span></div>
+                    <div class="text-green color-palette"><span>text-green</span></div>
+                    <div class="text-gray color-palette"><span>text-gray</span></div>
+                    <div class="text-navy color-palette"><span>text-navy</span></div>
+                    <div class="text-teal color-palette"><span>text-teal</span></div>
+                    <div class="text-teal color-palette"><span>text-teal</span></div>
+                    <div class="text-olive color-palette"><span>text-olive</span></div>
+                    <div class="text-lime color-palette"><span>text-lime</span></div>
+                    <div class="text-orange color-palette"><span>text-orange</span></div>
+                    <div class="text-fuchsia color-palette"><span>text-fuchsia</span></div>
+                    <div class="text-purple color-palette"><span>text-purple</span></div>
+                    <div class="text-maroon color-palette"><span>text-maroon</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

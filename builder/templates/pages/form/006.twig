@@ -1,0 +1,152 @@
+{% extends "share/base.twig" %}
+{% block top %}
+    <style>
+        #form-wizard h2,
+        .current-info {
+            display: none;
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            表单分组演示
+            <small>使用标签页来分组较多的表单项</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+            <li><a href="#">表单演示</a></li>
+            <li class="active">表单分组演示</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <form id="form-wizard" role="form" class="form-horizontal">
+            <div class="nav-tabs-custom">
+                <ul id="tabs" class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">基本信息</a></li>
+                    <li><a href="#tab_2" data-toggle="tab">备注信息</a></li>
+                    <li><a href="#tab_3" data-toggle="tab">其他信息</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <div class="form-group">
+                            <label for="form-email" class="col-sm-2 control-label">Email 地址</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="form-email" placeholder="输入 Email 地址">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-password" class="col-sm-2 control-label">用户名</label>
+                            <div class="col-sm-10">
+                                <input type="username" class="form-control" id="form-password" placeholder="输入密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-password" class="col-sm-2 control-label">所在城市</label>
+                            <div class="col-sm-10">
+                                <select class="form-control select2" name="area" id="area">
+                                    <option value="1">上海</option>
+                                    <option value="2">北京</option>
+                                    <option value="3">深圳</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-password" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <button id="show-tab2-btn" class="btn bg-light-blue">
+                                    下一步：备注信息 <i class="fa fa-fw fa-angle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_2">
+                        <div class="form-group">
+                            <label for="form-email" class="col-sm-2 control-label">个人简介</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" rows="3" placeholder="输入个人简介"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-password" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <button id="show-tab3-btn" class="btn bg-light-blue">
+                                    下一步：其他信息 <i class="fa fa-fw fa-angle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_3">
+                        <div class="form-group">
+                            <label for="form-email" class="col-sm-2 control-label">性别</label>
+                            <div class="col-sm-10" style="padding-top: 7px">
+                                <label class="margin-r-5">
+                                    <input type="radio" name="r1" class="minimal" checked>
+                                    男
+                                </label>
+                                <label class="margin-r-5">
+                                    <input type="radio" name="r1" class="minimal">
+                                    女
+                                </label>
+                                <label>
+                                    <input type="radio" name="r1" class="minimal">
+                                    保密
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-email" class="col-sm-2 control-label">婚姻状况</label>
+                            <div class="col-sm-10" style="padding-top: 7px">
+                                <label class="margin-r-5">
+                                    <input type="radio" name="r1" class="minimal" checked>
+                                    已婚
+                                </label>
+                                <label>
+                                    <input type="radio" name="r1" class="minimal">
+                                    未婚
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-password" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn bg-orange">
+                                    <i class="fa fa-fw fa-check"></i> 确定
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+            </div>
+        </form>
+    </section>
+    <!-- /.content -->
+{% endblock %}
+{% block bottom %}
+    <script src="{{ base_path }}/js/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(function () {
+            $('input[type="checkbox"], input[type="radio"]').iCheck({
+                checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green'
+            });
+
+            $('#show-tab2-btn').on('click', function () {
+                $('#tabs a[href="#tab_2"]').tab('show');
+                return false;
+            });
+
+            $('#show-tab3-btn').on('click', function () {
+                $('#tabs a[href="#tab_3"]').tab('show');
+                return false;
+            });
+        });
+    </script>
+{% endblock %}
