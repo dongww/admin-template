@@ -1,5 +1,8 @@
 #管理后台界面模板框架
 
+基于 [bootstrap](https://github.com/twbs/bootstrap) 和 
+[AdminLTE](https://github.com/almasaeed2010/AdminLTE) 开发的后台界面模板，集成众多组件，便于开发人员快速创建后台界面。
+
 ##目录结构
 
     |--README.md              项目说明
